@@ -21,8 +21,8 @@ describe('Find Admin by  and password', ()=> {
     it('should not be able to find a admin with incorrect email', async()=> {
         const adminRepository = new InMemoryAdminRepository();
         const findAdminByEmailAndPassword = new FindAdminByEmailAndPassword(adminRepository);
-        
-        await expect(findAdminByEmailAndPassword.execute('example-username-fake', 'senha123')).rejects.toThrowError('Incorrect email');
+
+        await expect(findAdminByEmailAndPassword.execute('example-username-fake', 'senha123')).rejects.toThrowError('The email is not valid');
     });
     
 });
