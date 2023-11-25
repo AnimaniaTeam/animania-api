@@ -1,10 +1,10 @@
-import { premiere as RawPremiere } from '@prisma/client';
-import Premiere from '../../../app/entities/premiere';
+import { release as RawRelease } from '@prisma/client';
+import Premiere from '../../../app/entities/release';
 
 
 
 export class PrismaPremiereMapper {
-    static toDomain(raw: RawPremiere){
+    static toDomain(raw: RawRelease){
         return new Premiere({
             id: raw.id,
             title: raw.title,

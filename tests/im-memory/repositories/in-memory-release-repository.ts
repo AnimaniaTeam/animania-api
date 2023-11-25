@@ -1,50 +1,50 @@
-import Premiere from '../../../src/app/entities/premiere';
-import ReleaseRepository from '../../../src/app/repositories/premiere-repository';
+import Release from '../../../src/app/entities/release';
+import ReleaseRepository from '../../../src/app/repositories/release-repository';
 
 export default class InMemoryReleaseRepository implements ReleaseRepository {
-    public premiere: Premiere[] = [];
+    public releases: Release[] = [];
     constructor() {
-        const onePiece = new Premiere({
+        const onePiece = new Release({
             id: 1,
             title: 'One Piece',
-            path_image: 'v1gecgve1ye7g17d23h.png',
+            pathImage: 'v1gecgve1ye7g17d23h.png',
             genres: ['Ação', 'aventura', 'romance'],
             streaming: 'Church',
             totalEpisodes: 1322,
             currentEpisode: 4,
             releaseDate: new Date('2023/08/03'),
-            isAiring: 'Em lançamento',
+            isAiring: true,
             season: 7,
             weeklyDayAiring: 'Domingo',
             likes: 123,
             deslikes: 9,
         });
-        const mashle = new Premiere({
+        const mashle = new Release({
             id: 1,
             title: 'One Piece',
-            path_image: 'v1gecgve1ye7g17d23h.png',
+            pathImage: 'v1gecgve1ye7g17d23h.png',
             genres: ['Ação', 'aventura', 'romance'],
             streaming: 'Church',
             totalEpisodes: 1322,
             currentEpisode: 4,
             releaseDate: new Date('2023/08/03'),
-            isAiring: 'Em lançamento',
+            isAiring: false,
             season: 7,
             weeklyDayAiring: 'Domingo',
             likes: 123,
             deslikes: 9,
         });
 
-        this.premiere.push(onePiece, mashle);
+        this.releases.push(onePiece, mashle);
 
     }
-    async showAll(): Promise<Premiere[] | null>  {
-        const premiere = this.premiere; 
+    async showAll(): Promise<Release[] | null>  {
+        const releases = this.releases; 
 
-        if(!premiere) {
+        if(!releases) {
             return null;
         }
 
-        return premiere;
+        return releases;
     }
 }

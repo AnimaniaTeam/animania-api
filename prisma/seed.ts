@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 async function main() {
     await prisma.admin.upsert({
-        where: {email: 'admin@email.com'},
+        where: { email: 'admin@email.com' },
         update: {},
         create: {
             email: 'admin@email.com',
@@ -13,7 +13,7 @@ async function main() {
         },
     });
     await prisma.admin.upsert({
-        where: {email: 'admin2@email.com'},
+        where: { email: 'admin2@email.com' },
         update: {},
         create: {
             email: 'admin2@email.com',
@@ -21,23 +21,23 @@ async function main() {
         }
     });
 
-    await prisma.premiere.upsert({
-        where: {id: 1},
+    await prisma.release.upsert({
+        where: { id: 1 },
         update: {},
         create: {
             title: 'One Piece',
             path_image: 'bhcbzhcvavc382y2.jpg',
             genres: ['aventura', 'ação'],
             streaming: 'Netflix',
-            totalEpisodes: 1320,
-            currentEpisode: 1321,
-            releaseDate: new Date(2023/7/10),
-            isAiring: 'Em andamento',
+            total_episodes: 1320,
+            current_episode: 1321,
+            release_date: new Date(2023 / 7 / 10),
+            is_airing: true,
             season: 12,
-            weeklyDayAiring: 'Domingo',
+            weekly_day_airing: 'Domingo',
             likes: 2000,
             deslikes: 236,
-            createdAt: new Date()
+            created_at: new Date()
         }
     });
 
@@ -51,4 +51,4 @@ main()
         await prisma.$disconnect();
         process.exit(1);
     });
-        
+

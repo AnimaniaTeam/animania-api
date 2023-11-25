@@ -1,6 +1,6 @@
 import { Replace } from 'app/helpers/replace';
 
-export interface premiereProps {
+export interface releaseProps {
     id: number
     title: string
     pathImage: string
@@ -9,7 +9,7 @@ export interface premiereProps {
     totalEpisodes: number
     currentEpisode: number
     releaseDate: Date
-    isAiring: string
+    isAiring: boolean
     season: number
     weeklyDayAiring: string
     likes: number
@@ -17,10 +17,10 @@ export interface premiereProps {
     createdAt: Date
 }
 
-export default class Premiere {
-    protected props: premiereProps;
+export default class Release {
+    protected props: releaseProps;
 
-    constructor(props: Replace<premiereProps, {createdAt?: Date}>){
+    constructor(props: Replace<releaseProps, {createdAt?: Date}>){
         this.props ={
             ...props,
             createdAt: props.createdAt ?? new Date()
@@ -51,7 +51,7 @@ export default class Premiere {
     get releaseDate(): Date {
         return this.props.releaseDate;
     }
-    get isAiring(): string {
+    get isAiring(): boolean {
         return this.props.isAiring;
     }
     get season(): number {

@@ -1,18 +1,19 @@
 import { describe, expect, it } from 'vitest';
-import Premiere from './premiere';
+import Premiere from './release';
+import Release from './release';
 
 describe('Entitie Release', () => {
     it('should be able create a instance of Release', () => {
-        const premiere = new Premiere({
+        const release = new Release({
             id: 1,
             title: 'One Piece',
-            path_image: 'v1gecgve1ye7g17d23h.png',
+            pathImage: 'v1gecgve1ye7g17d23h.png',
             genres: ['Ação', 'aventura', 'romance'],
             streaming: 'Church',
             totalEpisodes: 1322,
             currentEpisode: 4,
             releaseDate: new Date('2023/08/03'),
-            isAiring: 'Em lançamento',
+            isAiring: true,
             season: 7,
             weeklyDayAiring: 'Domingo',
             likes: 123,
@@ -20,6 +21,6 @@ describe('Entitie Release', () => {
 
         });
 
-        expect(premiere).instanceOf(Premiere);
+        expect(release).instanceOf(Release);
     });
 });

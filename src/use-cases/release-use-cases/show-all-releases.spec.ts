@@ -1,23 +1,23 @@
 import { describe, expect, it } from 'vitest';
-import ShowAllPremiere from './show-all-premiere';
-import InMemoryPremiereRepository from '../../../tests/im-memory/repositories/in-memory-premiere-repository';
+import ShowAllRelease from './show-all-release';
+import InMemoryReleaseRepository from '../../../tests/im-memory/repositories/in-memory-release-repository';
 
 
 describe('Show All Premieres', () => {
     it('should be able to possible show all the Premieres ', async () => {
-        const PremiereRepository = new InMemoryPremiereRepository();
-        const showAllPremiere = new ShowAllPremiere(PremiereRepository);
-        const Premieres = await showAllPremiere.execute();
+        const releaseRepository = new InMemoryReleaseRepository();
+        const showAllPremiere = new ShowAllRelease(releaseRepository);
+        const releases = await showAllPremiere.execute();
         
-        expect(Premieres).toBe(PremiereRepository.premiere);
+        expect(releases).toBe(releaseRepository.releases);
     });
 
     it('deve retornar null se não tiver lançamentos', async () => {
-        const premiereRepository = new InMemoryPremiereRepository();
-        const showAllPremiere = new ShowAllPremiere(premiereRepository);
-        premiereRepository.premiere = [];
-        const premieres = await showAllPremiere.execute();
+        const releaseRepository = new InMemoryReleaseRepository();
+        const showAllPremiere = new ShowAllRelease(releaseRepository);
+        releaseRepository.releases = [];
+        const releases = await showAllPremiere.execute();
 
-        expect(premieres).toBeNull;
+        expect(releases).toBeNull;
     });
 });

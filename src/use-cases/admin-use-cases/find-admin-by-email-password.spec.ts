@@ -22,7 +22,7 @@ describe('Find Admin by  and password', ()=> {
         const adminRepository = new InMemoryAdminRepository();
         const findAdminByEmailAndPassword = new FindAdminByEmailAndPassword(adminRepository);
         
-        await expect(findAdminByEmailAndPassword.execute('example-username-fake', 'senha123')).rejects.toThrowError('Incorrect email');
+        await expect(findAdminByEmailAndPassword.execute('fake@email.com', 'senha123')).rejects.toThrowError('Incorrect email');
     });
     
 });
